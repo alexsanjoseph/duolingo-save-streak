@@ -1,17 +1,10 @@
-
-def main():
-    import duolingo
-
+def main(a, b):
+    import duolingo, os
     try:
-        lingo = duolingo.Duolingo('get')
+        lingo = duolingo.Duolingo(os.environ['username'], os.environ['password'])
     except ValueError:
         raise UserWarning("Username Invalid")
         exit()
 
-    lingo = duolingo.Duolingo('akivalam', "@kivalam@duo")
-    lingo.get_streak_info()
-    lingo.get_vocabulary()
-
-    lingo.buy_streak_freeze()
     print("Trying to Buy Streak Freeze")
-    lingo.get_user_info()
+    print(lingo.buy_streak_freeze())
