@@ -1,12 +1,12 @@
 
-import duolingo
+def main():
+    import duolingo
 
-try:
-    lingo = duolingo.Duolingo('alexjoseph398895',  'xelajoseD')
-except ValueError:
-    raise UserWarning("Username Invalid")
-    exit()
+    try:
+        lingo = duolingo.Duolingo('get')
+    except ValueError:
+        raise UserWarning("Username Invalid")
+        exit()
 
-print("Trying to Buy Streak Freeze")
-lingo.buy_streak_freeze()
-lingo.get_streak_info()
+    print("Trying to Buy Streak Freeze")
+    lingo.get_streak_info()
