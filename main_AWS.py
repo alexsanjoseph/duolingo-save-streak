@@ -26,5 +26,3 @@ def main(a, b):
     passwords = os.environ['passwords'].split(',')
 
     list(map(process_single_user, usernames, passwords))
-
-main(1, 1)
