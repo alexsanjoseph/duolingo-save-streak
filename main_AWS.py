@@ -1,21 +1,21 @@
 def process_single_user(username, password):
+    import duolingo
     try:
         lingo = duolingo.Duolingo(username, password)
     except ValueError:
         raise Exception("Username Invalid")
 
-    print("Trying to Buy Streak Freeze for " + username)
-    if(lingo.buy_streak_freeze()):
-        print("Bought streak freeze for " + username)
-    else:
-        print("Unable to buy streak freeze")
+    stuff_to_purchase = ['streak_freeze', 'rupee_wager']
 
-    try:
-        print("Trying to Buy Double or nothing for " + username)
-        lingo.buy_item('rupee_wager', 'en')
-        print("Bought Double or nothing for " + username)
-    except:
-        print("Unable to buy double or nothing")
+    for item in stuff_to_purchase:
+        try:
+            print("Trying to Buy " + item + " for " + username)
+            lingo.buy_item(item, 'en')
+            print("Bought " + item + " for " + username)
+        except duolingo.AlreadyHaveStoreItemException:
+            print("Item Already Equipped")
+        except Exception:
+            raise ValueError("Unable to buy double or nothing")
 
 
 
