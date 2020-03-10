@@ -441,7 +441,7 @@ class Duolingo(object):
         if self._cloudfront_server_url:
             return self._cloudfront_server_url
 
-        server_list = re.search('//.+\.cloudfront\.net', self._homepage)
+        server_list = re.search(r'//.+\.cloudfront\.net', self._homepage)
         self._cloudfront_server_url = "https:{}".format(server_list.group(0))
 
         return self._cloudfront_server_url
@@ -449,7 +449,7 @@ class Duolingo(object):
     _tts_voices = None
 
     def _process_tts_voices(self):
-        voices_js = re.search('duo\.tts_multi_voices = {.+};',
+        voices_js = re.search(r'duo\.tts_multi_voices = {.+};',
                               self._homepage).group(0)
 
         voices = voices_js[voices_js.find("{"):voices_js.find("}") + 1]
