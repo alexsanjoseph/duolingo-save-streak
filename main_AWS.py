@@ -26,3 +26,7 @@ def main(a, b):
     passwords = os.environ['passwords'].split(',')
 
     list(map(process_single_user, usernames, passwords))
+
+import yaml
+learning_config = yaml.safe_load(open("../learning_config/config.yaml"))
+process_single_user(learning_config[0]['username'], learning_config[0]['password'])
