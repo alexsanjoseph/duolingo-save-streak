@@ -1,6 +1,8 @@
-def streak_freeze_count(lingo):
-    return lingo.__dict__['user_data'].__dict__['tracking_properties']['num_item_streak_freeze']
-
+def item_already_equipped(lingo, item):
+    if item == 'streak_freeze':
+        return lingo.__dict__['user_data'].__dict__['tracking_properties']['num_item_streak_freeze']
+    if item == 'rupee_wager':
+        return lingo.__dict__['user_data'].__dict__['tracking_properties']['has_item_rupee_wager']
 
 def process_single_user(username, password):
     import duolingo
@@ -12,7 +14,7 @@ def process_single_user(username, password):
     stuff_to_purchase = ['streak_freeze', 'rupee_wager']
 
     for item in stuff_to_purchase:
-        if(item == 'streak_freeze' and streak_freeze_count(lingo) >= 3):
+        if(item_already_equipped(lingo, item)):
             continue
         try:
             print("Trying to Buy " + item + " for " + username)
