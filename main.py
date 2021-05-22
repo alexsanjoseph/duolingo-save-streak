@@ -6,6 +6,7 @@ def item_already_equipped(lingo, item):
 
 def process_single_user(username, password):
     import duolingo
+    print(f"Processing {username}")
     try:
         lingo = duolingo.Duolingo(username, password)
     except ValueError:
@@ -15,6 +16,7 @@ def process_single_user(username, password):
 
     for item in stuff_to_purchase:
         if(item_already_equipped(lingo, item)):
+            print(f"Item: {item} Already Equipped")
             continue
         try:
             print("Trying to Buy " + item + " for " + username)
