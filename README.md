@@ -37,3 +37,7 @@ You can run the above command by adding it your cron expression if you have an a
 ### Using AWS Lambda
 
 Upload this as an AWS lambda function - Trigger daily by using Cloudwatch monitoring.
+
+## Detailed notes
+
+Detailed notes on how to set this in lambda up is there in this post - http://blog.alexsanjoseph.com/posts/duolingo-save-streak/
